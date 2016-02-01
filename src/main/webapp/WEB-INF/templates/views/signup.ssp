@@ -1,0 +1,6 @@
+<form method="POST" action="/signup">
+    Username: <input type="text" name="username"/>
+    Password: <input type="password" name="password"/>
+    Verify Password: <input type="password" name="verify"/>
+    <input type="submit"/>
+</form>

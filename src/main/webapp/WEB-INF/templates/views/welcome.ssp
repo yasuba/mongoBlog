@@ -1,0 +1,11 @@
+<%@ val username: String %>
+
+<h1>Hello ${username}</h1>
+
+<a href="/logout">Logout</a>
+
+
+<form method="POST" action="/addPost">
+    Post a blog: <textarea name="post"></textarea>
+    <input type="submit"/>
+</form>
