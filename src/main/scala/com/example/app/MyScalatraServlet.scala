@@ -32,7 +32,7 @@ ScalateSupport {
       val sessionId = SessionDAO.startSession(username)
       cookies.update("session", sessionId)
       redirect("/welcome")
-    }
+    } else redirect("/")
   }
 
   get("/signup") {

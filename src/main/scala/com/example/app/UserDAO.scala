@@ -22,10 +22,13 @@ object UserDAO extends SalatDAO[User, Int](collection = MongoConnection()("blog"
   }
 
   def validateLogin(username: String, password: String): Option[MongoDBObject] = {
-    val user = findUser(username).get
-    if (password != user("password")) {
-      println("user password is not a match")
-      None
-    } else Some(user)
+    val user = findUser(username)
+
+    user match {
+      case x if x.isEmpty => None
+      case x if x.isDefined && password != x.get("password") =>  println("user password is not a match")
+                                                                  None
+      case _ => user
+    }
   }
 }
