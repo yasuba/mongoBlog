@@ -1,21 +1,25 @@
 <%@ val blogs: List[Map[String, String]] %>
 <%@ val username: String %>
 
-
 <title>BLOG!</title>
 
-<h1>BLOG!</h1>
+<div class="container">
+    <header>
+    <h1>BLOG!</h1>
+    <% if (username == "none") %>
+        <a href="/signup">Sign up</a>
+        <a href="/login">Login</a>
+    <% else %>
+        <a href="/welcome"><i class="fa fa-pencil"></i>Create blog</a>
+        <a href="/logout"><i class="fa fa-sign-out"></i>Logout</a>
+    </header>
+</div>
 
-<% if (username == "none") %>
-    <a href="/signup">Sign up</a>
-    <a href="/login">Login</a>
-<% else %>
-    <a href="/welcome">Create blog</a>
-    <a href="/logout">Logout</a>
-
-<% for(blog <- blogs) {  %>
-    <p>Author: ${blog("author")}</p>
-    <p>Date: ${blog("dateAdded") }</p>
-    <p>Post: ${blog("post") }</p>
-<% } %>
+<div class="container">
+    <% for(blog <- blogs) {  %>
+        <p>Author: ${blog("author")}</p>
+        <p>Date: ${blog("dateAdded") }</p>
+        <p>Post: ${blog("postBody") }</p>
+    <% } %>
+</div>
 

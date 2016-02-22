@@ -76,9 +76,9 @@ ScalateSupport {
   post("/addPost") {
     val cookie:String = cookies.get("session").getOrElse("None")
     val author:String = SessionDAO.getUsername(cookie)
-    val post:String = params("post")
+    val postBody:String = params("postBody")
 
-    PostDAO.add(author, post)
+    PostDAO.add(author, postBody)
     redirect("/")
   }
 

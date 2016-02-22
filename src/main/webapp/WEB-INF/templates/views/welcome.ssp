@@ -6,6 +6,6 @@
 
 
 <form method="POST" action="/addPost">
-    Post a blog: <textarea name="post"></textarea>
+    Post a blog: <textarea name="postBody"></textarea>
     <input type="submit"/>
 </form>

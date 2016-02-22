@@ -9,23 +9,20 @@ import scala.util.Random
 
 case class Session(@Key("_id") id: Int, session: String)
 
-object SessionDAO extends SalatDAO[Session, Int](collection = MongoConnection()("blog")("sessions")) {
+object SessionDAO extends SalatDAO[Session, Int](collection = MongoConnection()("myBlog")("sessions")) {
 
   def startSession(username: String): String = {
-    val sessionId = randomStringRecursive(10)
-
-    val builder = MongoDBObject.newBuilder
-    builder += "username" -> username
-    builder += "sessionId" -> sessionId
-    collection += builder.result.asDBObject
-
+    val sessionId = randomString(10)
+    val session = MongoDBObject("username" -> username,
+                                "sessionId" -> sessionId)
+    collection += session
     sessionId
   }
 
-  def randomStringRecursive(n: Int): String = {
+  def randomString(n: Int): String = {
     n match {
       case 1 => Random.nextPrintableChar.toString
-      case _ => Random.nextPrintableChar.toString ++ randomStringRecursive(n-1).toString
+      case _ => Random.nextPrintableChar.toString ++ randomString(n-1).toString
     }
   }
 

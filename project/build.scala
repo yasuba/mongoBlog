@@ -27,6 +27,7 @@ object MongodbuniversityBuild extends Build {
         "org.scalatra" %% "scalatra" % ScalatraVersion,
         "org.scalatra" %% "scalatra-scalate" % ScalatraVersion,
         "org.scalatest" % "scalatest_2.11" % "2.2.4" % "test",
+        "org.scalatra" %% "scalatra-specs2" % ScalatraVersion % "test",
         "org.scalamock" %% "scalamock-scalatest-support" % "3.2" % "test",
         "ch.qos.logback" % "logback-classic" % "1.1.3" % "runtime",
         "org.eclipse.jetty" % "jetty-webapp" % "9.2.14.v20151106" % "container",

@@ -8,13 +8,12 @@ import com.example.context._
 
 case class User(@Key("_id") id: Int, username: String, password: String)
 
-object UserDAO extends SalatDAO[User, Int](collection = MongoConnection()("blog")("users")) {
+object UserDAO extends SalatDAO[User, Int](collection = MongoConnection()("myBlog")("users")) {
 
   def add(username: String, password: String) = {
-    val builder = MongoDBObject.newBuilder
-    builder += "username" -> username
-    builder += "password" -> password
-    collection += builder.result.asDBObject
+    val user = MongoDBObject("username" -> username,
+                             "password" -> password)
+    collection += user
   }
 
   def findUser(username: String): Option[MongoDBObject] = {

@@ -8,7 +8,7 @@ class ScalatraBootstrap extends LifeCycle {
   val mongoClient = MongoClient("localhost", 27017)
 
   override def init(context: ServletContext) {
-    val posts = mongoClient("blog")("posts")
+    val posts = mongoClient("myBlog")("posts")
 
     context.mount(new MyScalatraServlet(posts), "/*")
   }
