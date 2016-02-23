@@ -2,6 +2,12 @@
 
 Learning some new tech by building a blog using Scala, Scalatra, SBT, MongoDB, Casbah and Salat.
 
+##To do
+* Edit posts
+* Passwords & security
+* Comments
+* Delete everything and start again with TDD!
+
 ## Build & Run ##
 
 ```sh
