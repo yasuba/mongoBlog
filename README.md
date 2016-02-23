@@ -6,6 +6,7 @@ Learning some new tech by building a blog using Scala, Scalatra, SBT, MongoDB, C
 * Edit posts
 * Passwords & security
 * Comments
+* Error handling
 * Delete everything and start again with TDD!
 
 ## Build & Run ##
