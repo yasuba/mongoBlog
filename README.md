@@ -11,6 +11,8 @@ Learning some new tech by building a blog using Scala, Scalatra, SBT, MongoDB, C
 
 ## Build & Run ##
 
+Make sure you have both sbt and MongoDB installed.
+
 ```sh
 $ cd MongoDBUniversity
 $ sbt
