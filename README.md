@@ -14,7 +14,7 @@ Learning some new tech by building a blog using Scala, Scalatra, SBT, MongoDB, C
 Make sure you have both sbt and MongoDB installed.
 
 ```sh
-$ cd MongoDBUniversity
+$ cd mongoBlog
 $ sbt
 > jetty:start
 > browse
