@@ -36,7 +36,8 @@ object MongodbuniversityBuild extends Build {
         "org.json4s" %% "json4s-jackson" % "3.3.0",
         "org.scalatra" %% "scalatra-json" % ScalatraVersion,
         "org.json4s" %% "json4s-mongo" % "3.3.0",
-        "com.novus" %% "salat" % "1.9.9"
+        "com.novus" %% "salat" % "1.9.9",
+        "com.novus" %% "salat-core" % "0.0.7"
       ),
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
         Seq(

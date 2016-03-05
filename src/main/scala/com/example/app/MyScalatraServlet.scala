@@ -25,9 +25,7 @@ ScalateSupport {
   post("/login") {
     val username:String = params("username")
     val password:String = params("password")
-
     val userRecord = UserDAO.validateLogin(username, password)
-
     if (userRecord.isDefined) {
       val sessionId = SessionDAO.startSession(username)
       cookies.update("session", sessionId)
@@ -47,7 +45,7 @@ ScalateSupport {
 
     UserDAO.add(username, password)
 
-    val sessionId: String = if(validate_signup(username: String, password: String, verify: String)) SessionDAO.startSession(username) else "no session id"
+    val sessionId: String = if(validateSignup(username: String, password: String, verify: String)) SessionDAO.startSession(username) else "no session id"
     cookies.update("session", sessionId)
 
     redirect("/welcome")
@@ -82,6 +80,12 @@ ScalateSupport {
     redirect("/")
   }
 
-  def validate_signup(username: String, password: String, verify: String): Boolean = password == verify
+  post("/editPost") {
+    val postId = params("postId")
+//    val post = PostDAO.findOne(postId)
+    println(postId)
+  }
+
+  def validateSignup(username: String, password: String, verify: String): Boolean = password == verify
 
 }

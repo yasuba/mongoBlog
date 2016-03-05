@@ -3,6 +3,7 @@
 <h1>Hello ${username}</h1>
 
 <a href="/logout">Logout</a>
+<a href="/">Homepage</a>
 
 
 <form method="POST" action="/addPost">
