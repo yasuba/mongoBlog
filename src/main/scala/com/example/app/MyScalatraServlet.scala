@@ -80,10 +80,11 @@ ScalateSupport {
     redirect("/")
   }
 
-  post("/editPost") {
+  get("/editPost") {
     val postId = params("postId")
-//    val post = PostDAO.findOne(postId)
-    println(postId)
+    val post = PostDAO.findOne(postId)
+    println(post)
+    ssp("/editPost", "post" -> post)
   }
 
   def validateSignup(username: String, password: String, verify: String): Boolean = password == verify

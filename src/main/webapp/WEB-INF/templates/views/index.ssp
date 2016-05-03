@@ -18,7 +18,7 @@
 <div class="container">
     <% for(blog <- blogs) {  %>
         <% if (username != "none") { %>
-            <form method="POST" action="/editPost">
+            <form method="GET" action="/editPost">
               <input type="hidden" name="postId" value="${blog("_id")}" />
               <input type="submit" value="Edit post" />
             </form>

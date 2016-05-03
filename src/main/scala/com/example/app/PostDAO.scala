@@ -15,19 +15,20 @@ object PostDAO extends SalatDAO[Post, ObjectId](collection = MongoConnection()("
   def allBlogs():List[Map[String, String]] = {
     val dateFormat = new SimpleDateFormat("dd/MM/yyyy")
     val cursor = collection.find().toList
-    cursor.map(doc => Map("author" -> doc("author").toString,
+    cursor.map(doc => Map("_id" -> doc("_id").toString,
+                          "author" -> doc("author").toString,
                           "postBody" -> doc("postBody").toString,
                           "createdAt" -> dateFormat.format(doc("createdAt").asInstanceOf[Date])))
     }
 
   def add(author: String, postBody: String) = {
     val date = new Date()
-    val post = Post(new ObjectId, author, postBody, date)
+    val post: Post = Post(new ObjectId, author, postBody, date)
     val dbo = grater[Post].asDBObject(post)
     collection += dbo
   }
 
-  def findOne(id: String): Option[MongoDBObject] = {
+  def findOne(id: ObjectId): Option[MongoDBObject] = {
     for (post <- collection.findOne(MongoDBObject("_id" -> id))) yield post
   }
 }

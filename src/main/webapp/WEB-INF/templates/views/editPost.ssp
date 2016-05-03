@@ -1,0 +1,12 @@
+<%@ import val post: com.example.app.Post %>
+
+<%--<% post.id %>--%>
+
+<%--<% if (post.id != null) {--%>
+<%--<form method="POST" action="/addPost">--%>
+<%--Post a blog: <textarea name="postBody">--%>
+<%--dsfewfe--%>
+<%--</textarea>--%>
+<%--<input type="submit"/>--%>
+<%--</form>--%>
+<%--} %>--%>
